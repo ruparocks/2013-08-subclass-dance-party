@@ -6,7 +6,7 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps){
 
   blinkyDancer.step = function(){
     // call the old version of step at the beginning of any call to this new version of step
-    oldStep();
+    oldStep.call(this);
 
     /* toggle() is a jQuery method to show/hide the <span> tag.
      * See http://api.jquery.com/category/effects/ for this and
