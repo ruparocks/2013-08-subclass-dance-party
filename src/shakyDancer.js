@@ -8,6 +8,7 @@ var ShakyDancer = function(top, left, timeBetweenSteps){
   //debugger;
   this.newTop = top || 0;
   this.newLeft = left || 0;
+  window.dancers.push(this);
 };
 
 ShakyDancer.prototype = new Dancer();
@@ -30,3 +31,8 @@ ShakyDancer.prototype.step = function(){
     };
     this.$node.css(styleSettings);
   };
+
+ShakyDancer.prototype.lineUp = function() {
+  this.$node.animate({top: "200px"}, 500);
+  this.newTop = 200;
+};
