@@ -3,9 +3,6 @@ var ColorDancer = function(top, left, timeBetweenSteps){
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
   var oldStep = Dancer.prototype.step;
-  //debugger;
-  this.newTop = top || 0;
-  this.newLeft = left || 0;
 };
 
 ColorDancer.prototype = new Dancer();
@@ -14,12 +11,17 @@ ColorDancer.prototype.step = function(){
     // call the old version of step at the beginning of any call to this new version of step
     Dancer.prototype.step.call(this);
 
-    /* toggle() is a jQuery method to show/hide the <span> tag.
-     * See http://api.jquery.com/category/effects/ for this and
-     * other effects you can use on a jQuery-wrapped html tag. */
-    
+    // Generate a random color
+    var colorValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += colorValues[Math.ceil(Math.random()*16)];
+    }
     var styleSettings = {
-      background-color: 
+      'border-color': color
     };
     this.$node.css(styleSettings);
-  };
+};
+ColorDancer.prototype.lineUp = function() {
+  this.$node.animate({top: "100px"}, 1500);
+};
