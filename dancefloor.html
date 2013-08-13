@@ -8,6 +8,7 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/shakyDancer.js"></script>
     <script src="src/colorDancer.js"></script>
+    <script src="src/imageDancer.js"></script>
   </head>
   <body>
 
@@ -16,6 +17,7 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="ShakyDancer">add a shaky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="ColorDancer">add a color dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ImageDancer">add an image dancer</a>
       <a href="#" class="lineUpButton">Line Up Colors</a>
     </div>
         <audio id="whistle" src="lib/whistle.wav"></audio>
@@ -45,7 +47,7 @@
 
           // make a dancer with a random position
           var dancer = new dancerMakerFunction(
-            $("body").height() * Math.random(),
+            $("body").height() * Math.random()+25,
             $("body").width() * Math.random(),
             Math.random() * 1000
           );

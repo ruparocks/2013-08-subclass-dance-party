@@ -23,6 +23,8 @@ ColorDancer.prototype.step = function(){
     'border-color': color
   };
   this.$node.css(styleSettings);
+  this.$node.animate({"border-width": "15px", "border-radius": "15px"}, 800);
+
 };
 ColorDancer.prototype.lineUp = function() {
   this.$node.animate({top: "100px"}, 1500);
