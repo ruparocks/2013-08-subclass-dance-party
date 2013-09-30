@@ -10,20 +10,17 @@ var ColorDancer = function(top, left, timeBetweenSteps){
 ColorDancer.prototype = new Dancer();
 ColorDancer.prototype.constructor = ColorDancer;
 ColorDancer.prototype.step = function(){
-  // call the old version of step at the beginning of any call to this new version of step
   Dancer.prototype.step.call(this);
-
-  // Generate a random color
   var colorValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
   var color = '#';
   for (var i = 0; i < 6; i++) {
     color += colorValues[Math.ceil(Math.random()*16)];
   }
-  var styleSettings = {
+  var randomSize = (Math.random() * 50) + "px";
+  this.$node.css({
     'border-color': color
-  };
-  this.$node.css(styleSettings);
-  this.$node.animate({"border-width": "15px", "border-radius": "15px"}, 800);
+  });
+  this.$node.animate({"border-width": randomSize, "border-radius": randomSize}, 800);
 
 };
 ColorDancer.prototype.lineUp = function() {
